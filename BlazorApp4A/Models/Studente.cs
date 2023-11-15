@@ -59,7 +59,7 @@ namespace BlazorApp4A.Models
 			set { nome = value; }
 		}
 
-		public void Serializza()
+		public virtual void Serializza()
 		{
             File.WriteAllText(dataSourceString, JsonConvert.SerializeObject(this));			
         }

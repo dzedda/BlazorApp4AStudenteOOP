@@ -41,6 +41,9 @@
     public void CreaClick()
     {
         x = new Studente(nuovoNome, nuovaSezione);
+        Borsista y = new Borsista(nuovoNome, nuovaSezione, 1000.99m);
+        y.Serializza();
+        Borsista k = Borsista.Deserializza();
     }
 
     public void DiplomaClick()
