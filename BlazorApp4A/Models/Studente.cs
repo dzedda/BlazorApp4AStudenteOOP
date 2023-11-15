@@ -61,19 +61,27 @@ namespace BlazorApp4A.Models
 
 		public void Serializza()
 		{
+            File.WriteAllText(dataSourceString, JsonConvert.SerializeObject(this));
+			/*
             JsonSerializer mySerializer = new JsonSerializer();
             StreamWriter myStream = new StreamWriter(dataSourceString);
             mySerializer.Serialize(myStream, this);
             myStream.Close();
+			*/
         }
         public static Studente Deserializza()
         {
 			Studente? x;
-            JsonSerializer mySerializer = new JsonSerializer();
+            x = JsonConvert.DeserializeObject<Studente>(File.ReadAllText(dataSourceString));
+            /*
+             * JsonSerializer mySerializer = new JsonSerializer();
             StreamReader myStream = new StreamReader(dataSourceString);
             x=mySerializer.Deserialize(myStream, typeof (Studente)) as Studente;
             myStream.Close();
-			return x;
+			
+			*/
+            return x;
+
         }
     }
 }
