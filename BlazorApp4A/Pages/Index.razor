@@ -44,6 +44,15 @@
         Borsista y = new Borsista(nuovoNome, nuovaSezione, 1000.99m);
         y.Serializza();
         Borsista k = Borsista.Deserializza();
+
+        Gruppo j = new Gruppo();
+        j.StudenteList.Add(x);
+
+        j.BorsistaList.Add(y);
+        j.BorsistaList.Add(k);
+
+        j.Serializza();
+        Gruppo f = Gruppo.Deserializza();
     }
 
     public void DiplomaClick()
