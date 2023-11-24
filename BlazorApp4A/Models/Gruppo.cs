@@ -4,7 +4,6 @@ namespace BlazorApp4A.Models
 {
     public class Gruppo
     {
-
         private static string dataSourceString = @"Data/Source/gruppo.json";
         public List<Studente> StudenteList { get; set; } = new List<Studente>();
         public List<Borsista> BorsistaList { get; set; } = new List<Borsista>();

@@ -1,0 +1,21 @@
+﻿@page "/input-page"
+
+<h3>Input di Testo Blazor con Aggiornamento in Tempo Reale</h3>
+
+<p>Inserisci un valore:</p>
+<input @bind="inputValue" @oninput="UpdateValue" />
+
+<input @bind-value="inputValue" @bind-value:event="oninput" />
+
+<div>
+    <p>Valore inserito: @inputValue</p>
+</div>
+
+@code {
+    private string inputValue;
+
+    private void UpdateValue(ChangeEventArgs e)
+    {
+        inputValue = e.Value.ToString();
+    }
+}
