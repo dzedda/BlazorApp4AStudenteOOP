@@ -1,0 +1,50 @@
+﻿@page "/products/{id:int}"
+@page "/products"
+<h3>ProductsList</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Unità</th>
+            <th scope="col">Produttore</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in myList.Products)
+        {
+            <tr>
+                <th scope="row">
+                    <a href="/productdetail/@item.id">@item.id</a>
+                </th>
+                <td>@item.nome</td>
+                <td>@item.Price</td>
+                <td>@item.Unit</td>
+                <td><a href="/supplierdetail/@item.supplierId">fornitore</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+@code {
+    int idSupplier;
+    [Parameter]
+    public int id
+    {
+        get
+        {
+            return  idSupplier;
+        }
+        set
+        {
+            int idSupplier= value;
+            if(idSupplier!=0) myList.Products = myList.Products.FindAll((x) => x.supplierId == idSupplier.ToString());
+        }
+    }
+    ProductList myList = ProductList.Deserializza();
+
+
+
+}

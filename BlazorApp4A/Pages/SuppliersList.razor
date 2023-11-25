@@ -13,7 +13,9 @@
         @foreach (var item in myList.Suppliers)
         {
             <tr>
-                <th scope="row">@item.IdSupplier</th>
+                <th scope="row">
+                    <a href="/supplierdetail/@item.IdSupplier">@item.IdSupplier</a>
+                </th>
                 <td>@item.Name</td>
                 <td>@item.Contact</td>
                 <td>@item.Country</td>
