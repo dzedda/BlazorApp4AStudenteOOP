@@ -1,0 +1,23 @@
+﻿@page "/productdetail/{id:int}"
+<h3>Prodotto @id</h3>
+
+<div class="card" style="width: 18rem;">
+    <img src="/images/products/@(myProduct.id + ".jpeg")" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@myProduct.nome</h5>
+        <p class="card-text">@myProduct.Price</p>
+        <a href="/supp/@myProduct.supplierId" class="btn btn-primary">Product list</a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    ProductList myList = ProductList.Deserializza();
+    Product myProduct;
+    protected override Task OnInitializedAsync()
+    {
+        myProduct = myList.Products.Find((x) => x.id == id.ToString());
+        return base.OnInitializedAsync();
+    }
+}
